@@ -1,5 +1,6 @@
 package esepunittests
 
+
 type GradeCalculator struct {
 	assignments []Grade
 	exams       []Grade
@@ -57,11 +58,7 @@ func (gc *GradeCalculator) GetFinalGrade() string {
 func (gc *GradeCalculator) AddGrade(name string, grade int, gradeType GradeType) {
 	switch gradeType {
 	case Assignment:
-		gc.assignments = append(gc.assignments, Grade{
-			Name:  name,
-			Grade: grade,
-			Type:  Assignment,
-		})
+		gc.assignments = append(gc.assignments, Grade{ Name:  name, Grade: grade, Type:  Assignment, })
 	case Exam:
 		gc.exams = append(gc.exams, Grade{
 			Name:  name,
@@ -90,9 +87,10 @@ func (gc *GradeCalculator) calculateNumericalGrade() int {
 func computeAverage(grades []Grade) int {
 	sum := 0
 
-	for grade, _ := range grades {
-		sum += grade
+	for _, grade := range grades {
+		sum += grade.Grade
 	}
+
 
 	return sum / len(grades)
 }
