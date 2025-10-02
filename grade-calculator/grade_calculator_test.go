@@ -28,7 +28,6 @@ func TestGetGradeB(t *testing.T) {
 	gradeCalculator.AddGrade("essay on ai ethics", 85, Essay)
 
 	actual_value := gradeCalculator.GetFinalGrade()
-
 	if expected_value != actual_value {
 		t.Errorf("Expected GetGrade to return '%s'; got '%s' instead", expected_value, actual_value)
 	}
@@ -107,7 +106,7 @@ func TestComputeAverage(t *testing.T) {
 	gradeCalculator.AddGrade("resume assignment", 50, Assignment)
 	gradeCalculator.AddGrade("unit testing assignment", 60, Assignment)
 
-	actual_value := computeAverage(gradeCalculator.assignments)
+	actual_value := computeAverage(gradeCalculator.grades)
 
 	if expected_value != actual_value {
 		t.Errorf("Expected computeAverage to return '%d'; got '%d' instead", expected_value, actual_value)
